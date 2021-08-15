@@ -33,49 +33,13 @@ namespace BLL
 
         #region Users
 
-        #region Data Users
-        public class Geo
-        {
-            public string lat { get; set; }
-            public string lng { get; set; }
-        }
-
-        public class Address
-        {
-            public string street { get; set; }
-            public string suite { get; set; }
-            public string city { get; set; }
-            public string zipcode { get; set; }
-            public Geo geo { get; set; }
-        }
-
-        public class Company
-        {
-            public string name { get; set; }
-            public string catchPhrase { get; set; }
-            public string bs { get; set; }
-        }
-
-        public class Users
-        {
-            public int id { get; set; }
-            public string name { get; set; }
-            public string username { get; set; }
-            public string email { get; set; }
-            public Address address { get; set; }
-            public string phone { get; set; }
-            public string website { get; set; }
-            public Company company { get; set; }
-        }
-        #endregion
-
-
-        public List<Users> DeserializarU(List<Users> users)
+        public List<Users.clsUser> DeserializarU(List<Users.clsUser> users)
         {
             string url = "https://jsonplaceholder.typicode.com/users";
 
             string respuesta = GetJsonFromWeb(url);
-            return JsonConvert.DeserializeObject<List<Users>>(respuesta);
+            var DataU = JsonConvert.DeserializeObject<List<Users.clsUser>>(respuesta);
+            return DataU;
         }
 
         #endregion
@@ -84,23 +48,16 @@ namespace BLL
 
         #region Posts
 
-        #region Data Posts
-        public class Post
-        {
-            public int userId { get; set; }
-            public int id { get; set; }
-            public string title { get; set; }
-            public string body { get; set; }
-        }
-        #endregion
 
-        public List<Post> DeserializarP(List<Post> posts)
+
+        public List<Posts.clsPost> DeserializarP(List<Posts.clsPost> posts)
         {
             string url = "https://jsonplaceholder.typicode.com/posts";
 
             string respuesta = GetJsonFromWeb(url);
 
-            return JsonConvert.DeserializeObject<List<Post>>(respuesta);
+            var DataP = JsonConvert.DeserializeObject<List<Posts.clsPost>>(respuesta);
+            return DataP;
         }
         #endregion
 
@@ -108,28 +65,19 @@ namespace BLL
 
         #region Comments
 
-        #region Data Comments
-        public class Comment
-        {
-            public int postId { get; set; }
-            public int id { get; set; }
-            public string name { get; set; }
-            public string email { get; set; }
-            public string body { get; set; }
-        }
-        #endregion
 
-        public List<Comment> DeserializarC(List<Comment> comments)
+        public List<Comments.clsComment> DeserializarC(List<Comments.clsComment> comments)
         {
             string url = "https://jsonplaceholder.typicode.com/comments";
 
             string respuesta = GetJsonFromWeb(url);
-            return JsonConvert.DeserializeObject<List<Comment>>(respuesta);
+            return JsonConvert.DeserializeObject<List<Comments.clsComment>>(respuesta);
         }
         #endregion
 
 
     }
+
 }
 
 

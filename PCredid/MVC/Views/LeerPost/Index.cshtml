@@ -1,0 +1,28 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div>
+    <div>
+        <ul>
+            @foreach(var usr in ViewData["username"] as List<string>)
+            {
+                <li>
+                     
+                        @usr
+                    <br />
+                    <br />
+                    @foreach(var title in ViewData["title"] as List<string>)
+                {       
+                    <a>
+                        @title
+                        <br />
+                        <br />
+                    </a>
+                }      
+                </li>
+            }
+
+
+        </ul>
+    </div>
+</div>

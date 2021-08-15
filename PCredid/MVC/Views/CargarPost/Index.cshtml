@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="row">
+    <form id="frm">
+        <div class="col-lg-6 col-lg-offset-3">
+            <input type="submit" name="btnP" class="btn btn-success" value="Cargar Post" />
+        </div>
+    </form>
+</div>
+@section Scripts 
+{
+<script>
+           $(document).ready(function () {
+               $("#frm").submit(function (e) {
+                   e.preventDefault();
+
+                   url = "@Url.Content("~/CargarPost/TraerData")"
+                      $.post(url, function (data) {
+
+                            if (data == "1") {
+                                document.location.href = "@Url.Content("~/LeerPost/Index")";
+                            } else {
+                                alert(data)
+                            }
+
+                        })
+
+               })
+
+
+           })
+
+</script> 
+
+
+
+}
