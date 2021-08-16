@@ -19,7 +19,7 @@
                $("#frm").submit(function (e) {
                    e.preventDefault();
 
-                   url = "@Url.Content("~/CargarPost/TraerData")"
+                   url = "@Url.Content("~/Home/TraerData")"
                    $.post(url, function (data) {
                                 document.location.href = "@Url.Content("~/LeerPost/Index")";
 

@@ -7,7 +7,7 @@ using BLL;
 
 namespace MVC.Controllers
 {
-    public class CargarPostController : Controller
+    public class HomeController : Controller
     {
         public IActionResult Index()
         {
