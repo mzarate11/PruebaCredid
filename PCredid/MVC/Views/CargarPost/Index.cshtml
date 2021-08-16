@@ -1,12 +1,16 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<div class="row">
-    <form id="frm">
-        <div class="col-lg-6 col-lg-offset-3">
-            <input type="submit" name="btnP" class="btn btn-success" value="Cargar Post" />
-        </div>
-    </form>
+<div class="col-md-6 offset-md-3">
+    <div class="row">
+        <form id="frm">
+            <div>
+                <br>
+                <br>
+                <input type="submit" name="btnP" class="btn btn-success" value="Cargar Usuarios" />
+            </div>
+        </form>
+    </div>
 </div>
 @section Scripts 
 {
@@ -16,13 +20,9 @@
                    e.preventDefault();
 
                    url = "@Url.Content("~/CargarPost/TraerData")"
-                      $.post(url, function (data) {
-
-                            if (data == "1") {
+                   $.post(url, function (data) {
                                 document.location.href = "@Url.Content("~/LeerPost/Index")";
-                            } else {
-                                alert(data)
-                            }
+
 
                         })
 

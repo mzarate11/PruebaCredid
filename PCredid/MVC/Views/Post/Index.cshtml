@@ -1,0 +1,22 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div class="col-md-6 offset-md-3">
+    <form>
+        <div class="row">
+           
+                <div class="col-md-6">
+                    <h5>@ViewData["username"] Post´s</h5>
+                    <br>
+                </div>
+                <div>
+                    @foreach (var title in ViewData["titulo"] as List<Tuple<int, string>>)
+                    {
+                        <a href="@Url.Action("Index","Comment",new {pid = title.Item1, user = ViewData["username"]})" class="btn-link, col-md-6">@title.Item2</a>
+                        <br>
+                        <br>
+                    }
+                </div>
+        </div>
+    </form>
+</div>

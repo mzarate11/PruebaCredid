@@ -1,0 +1,93 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div>
+
+        @foreach(var user in ViewData["dUsuarios"] as List<Tuple<int, string, string,string,string,string>>)
+        {
+    <div class="col-md-6 offset-md-3">
+        <form>
+            <h5 class="col-lg-6">Personal Data</h5>
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="name">Name:</label><br>
+                    <label id="name">@user.Item2</label>
+                </div>
+                <div class="col-sm-6">
+                    <label for="username">Username:</label><br>
+                    <label id="username">@user.Item3</label>
+                </div>
+                <div class="col-sm-6">
+                    <label for="name">Email:</label><br>
+                    <label id="name">@user.Item4</label>
+                </div>
+                <div class="col-sm-6">
+                    <label for="name">Phone:</label><br>
+                    <label id="name">@user.Item5</label>
+                </div>
+                <div class="col-sm-6">
+                    <label for="name">Website:</label><br>
+                    <label id="name">@user.Item6</label>
+                </div>
+            </div>
+            <br>
+            <h5 class="col-lg-6">Adress</h5>
+            <div class="row">
+                
+                @foreach (var adr in ViewData["adress"] as List<Tuple<string, string, string, string, string, string>>)
+                {
+                    <div class="col-sm-6">
+                        <label for="city">City:</label><br>
+                        <label id="city">@adr.Item1</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="street">Street:</label><br>
+                        <label id="street">@adr.Item2</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="suite">Suite:</label><br>
+                        <label id="suite">@adr.Item3</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="zipcode">Zipcode:</label><br>
+                        <label id="zipcode">@adr.Item4</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="p-0">
+                            <label class="col-md-6, h6">Geolocalización</label><br>
+                            <label for="atitud">Latitud:</label>
+                            <label id="latitud">@adr.Item5</label><br />
+                            <label for="longitud">Longitud:</label>
+                            <label id="longitud">@adr.Item6</label>
+                        </div>
+                    </div>
+                }
+            </div>
+            <br>
+            <h5 class="col-sm-6">Company</h5>
+            <div class=" row">
+                @foreach (var cpy in ViewData["company"] as List<Tuple<string, string, string>>)
+                {
+                <div class="col-sm-6">
+                    <label for="namec">Company Name:</label><br>
+                    <label id="namec">@cpy.Item1</label>
+                </div>
+                <div class="col-sm-6">
+                    <label for="cp">Catch Pharse:</label><br>
+                    <label id="cp">@cpy.Item2</label>
+                </div>
+                <div class="col-sm-6">
+                    <label for="bs">Business:</label><br>
+                    <label id="bs">@cpy.Item3</label>
+                </div>
+                }
+            </div>
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <input type="button" value="Ver Post's'" class="btn btn-success" onclick="document.location.href = '@Url.Action("Index","Post", new {uid = user.Item1,name = user.Item3})'" />
+                </div>
+            </div>
+        </form>
+    </div>
+            }
+</div>

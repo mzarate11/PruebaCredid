@@ -13,20 +13,13 @@ namespace MVC.Controllers
         public IActionResult Index()
         {
             Logica objLogica = new Logica();
-            List<BLL.Posts.clsPost> listP = new List<BLL.Posts.clsPost>();
             List<BLL.Users.clsUser> listU = new List<BLL.Users.clsUser>();
-            listP = objLogica.DeserializarP(listP);
             listU = objLogica.DeserializarU(listU);
-            var resultU = listU.Select(u => u.username).ToList();
+            var resultU = listU.Select(u => new Tuple<int, string>(u.id,u.username)).ToList();
             ViewData["username"] = resultU;
-            for (int i = 1; i<10;i++)
-            {
-                var resultP = listP.Where(id => id.userId == i).Select(id => id.title).ToList();
-                ViewData["title"] = resultP;
-            };
-           
-            
             return View();
+
         }
+
     }
 }
